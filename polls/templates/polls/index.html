@@ -1,0 +1,38 @@
+{% include "polls/account.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>{{user.username}}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marmelad&family=Oswald:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css'%}" type="text/css">
+</head>
+
+
+
+{% if latest_question_list %}
+<p class="index_que">Вопросы:</p>
+<ul class="index_ul">
+    {% for question in latest_question_list %}
+        {% if question.is_past_due == False %}
+        <div class="index_question">
+            <a class="index_a" href="/polls/{{question.id}}/{{user.id}}">{{question.question_text}}</a>
+            {% if question.short_description != '' %}
+            <p class="index_desc">( {{ question.short_description }} )</p>
+            {% endif %}
+        {% endif %}
+    </div>
+    {% endfor %}
+</ul>
+{% else %}
+<p class="index_desc" style="margin-top: 20px;">
+    Нет вопросов!
+</p>
+
+{% endif %}

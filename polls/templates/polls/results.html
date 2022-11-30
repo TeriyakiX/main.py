@@ -1,0 +1,45 @@
+{% load static %}
+{% load pluralize %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Результат</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marmelad&family=Oswald:wght@300;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'style.css'%}" type="text/css">
+</head>
+
+<body class="det_body">
+  <div class="det_container">
+    <h1 class="det_h1">{{ question.question_text }}</h1>
+
+    {% if question.long_description != '' %}
+    <p class="det_desc"> {{ question.long_description }}</p>
+    {% endif %}
+
+    {% if question.image != '' %}
+    <img class="det_image" src="/static/img/{{ question.image }}">
+    {% endif %}
+
+    <br>
+
+
+    <ul>
+      {% for choice in question.choice_set.all %}
+      <li>{{ choice.choice_text }} — {{ choice.percent }} % голосов</li>
+      <!-- {{choice.votes|rupluralize:"голос,голоса,голосов"}} -->
+      {% endfor %}
+    </ul>
+
+  </div>
+
+  <div class="det_back">
+    <a href="/question">Назад</a>
+  </div>
+
+</body>

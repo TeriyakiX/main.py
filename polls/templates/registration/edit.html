@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Редактирование</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marmelad&family=Oswald:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css'%}" type="text/css">
+</head>
+
+<body class="edit_container">
+    <div class="edit_all">
+        <div class="messages">
+            {% if messages %}
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <form class="edit_form" method="POST" enctype=multipart/form-data>
+            {% csrf_token %}
+            <p class="edit_form_first">
+                <label class="edit_form_label">Введите имя </label>
+                <input class="edit_form_name" type="text" name="name" value="{{user.username}}">
+            </p>
+            <p class="edit_form_second">
+                <label class="edit_form_label">Введите пароль</label>
+                <input class="edit_form_password" type="password" name="password">
+            </p>
+            <!-- {{ form.as_p }} -->
+            <p class="edit_form_third">
+                <label class="edit_form_label">Загрузить аватар</label>
+                <input class="edit_form_image" type="file" name="image">
+            </p>
+            <input class="edit_form_submit" type="submit" value="Сохранить">
+
+        </form>
+
+        <hr>
+
+        <div class="acc_settings_delete">
+            <a href="/polls/delete/{{user.id}}">Удалить аккаунт</a>
+        </div>
+    </div>
+
+    <div class="edit_back">
+        <a href="/question">Назад</a>
+    </div>
+</body>
+
+</html>

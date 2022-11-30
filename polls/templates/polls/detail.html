@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>{{question.question_text}}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marmelad&family=Oswald:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css'%}" type="text/css">
+</head>
+
+<body class="det_body">
+    <div class="det_container">
+        <form action="/{{question.id}}/{{user.id}}/vote/" method="post">
+            {% csrf_token %}
+
+            <h1 class="det_h1">{{question.question_text}}</h1>
+
+            {% if question.long_description != '' %}
+            <p class="det_desc"> {{ question.long_description }}</p>
+            {% endif %}
+
+            {% if question.image != '' %}
+            <img class="det_image" src="/static/img/{{ question.image }}">
+            {% endif %}
+
+            <br>
+
+            {% if error_message %}<p class="det_error"><strong> {{error_message}}</strong></p>{% endif %}
+            {% for choice in question.choice_set.all %}
+            <input class="det_choice" type="radio" name="choice" id="choice{{forloop.counter}}" value="{{choice.id}}">
+            <label class="det_label" for="choice{{forloop.counter}}">{{choice.choice_text}}</label><br>
+            {% endfor %}
+
+            <input id="det_submit" class="det_submit" type="submit" value="Проголосовать">
+
+            {% for users in uservotes %}
+            {% if users.question == question.id %}
+            {% if users.user_id == user.id %}
+            <script>
+                let sub = document.getElementById('det_submit');
+                sub.outerHTML = ` <p class="det_warning">Вы уже проголосовали</p> <input id="det_submit" class="det_submit" type="submit" value="Посмотреть результат">`;
+                let flags = document.getElementsByClassName('det_choice')
+                for (let i = 0; i < flags.length; i++) {
+                    flags[i].setAttribute("disabled", '');
+                };
+            </script>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </form>
+    </div>
+
+    <div class="det_back">
+        <a href="/question">Назад</a>
+    </div>
+</body>

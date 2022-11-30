@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marmelad&family=Oswald:wght@300;500;700&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css'%}" type="text/css">
+</head>
+
+<div class="acc_container">
+  <div class="acc_profile">
+    <div class="acc_profile_img">
+      <img src="/static/img/{{user.profile.image}}">
+    </div>
+    <div class="acc_profile_name">
+      <p>{{user.username}}</p>
+    </div>
+  </div>
+  <div class="acc_settings">
+    <div class="acc_settings_edit">
+      <a href="/edit/{{user.id}}">Редактировать</a>
+    </div>
+    <div class="acc_settings_logout">
+      <a href=" {% url 'logout' %}">Выйти</a>
+    </div>  
+  </div>
+
+</div>
+<hr>
+
+
+

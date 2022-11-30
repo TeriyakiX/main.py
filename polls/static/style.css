@@ -1,0 +1,390 @@
+
+* {
+   text-decoration: none;
+}
+
+textarea {
+   resize:none;
+}
+
+input {
+   outline:none;
+}
+
+[class^="auth"] a {
+   color: black;
+   font-size: 40px;
+   border: black 3px solid;
+   padding: 20px;
+}
+
+[class^="auth"] a:hover {
+   transition: 0.5s;
+   color: rgb(255, 0, 0);
+   border: rgb(255, 0, 0) 2px solid;
+}
+
+.auth_log {
+   margin-top: 60px ;
+}
+
+.auth_container {
+   height: 90vh;
+   padding: 20px 100px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.reg_form,.auth_form {
+   padding: 30px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+.reg_form p,.auth_form p {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+}
+
+.reg_form label:first-child,.auth_form label:first-child{
+   margin-top: -20px;
+}
+
+.reg_form label,.auth_form label{
+   text-align: left;
+   margin-bottom: 10px;
+   font-size: 23px;
+}
+
+#id_username,#id_password1,#id_password2,#id_password {
+   transition: 0.5s;
+   width: 250px;
+   height: 50px;
+   font-size: 24px;
+   padding-left: 6px ;
+   border: 2px solid black;
+   border-radius: 5px;
+}
+
+.reg_form_button,.auth_form_button {
+   cursor: pointer;
+   transition: 0.5s; 
+   margin-top: 10px;
+   width: 250px;
+   height: 50px;
+   border-radius: 10px;
+   color: black;
+   background-color: white;
+   border: black 2px solid;
+   font-size: 22px;
+}
+
+.reg_container,.login_container {
+   flex-direction: column;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+}
+
+.reg_form_button:hover,.auth_form_button:hover {
+   transition: 0.5s;
+   color: rgb(255, 0, 0);
+   border: rgb(255, 0, 0) 2px solid;
+} 
+
+#id_username:hover,#id_password1:hover,#id_password2:hover,#id_password:hover  {
+   transition: 0.5s;
+   border: rgb(255, 0, 0) 2px solid;
+}
+
+.index_ul {
+   display: flex;
+   flex-direction: column;
+}
+
+.reg_h1,.login_h1 {
+   font-size: 35px;
+}
+
+.errorlist {
+   margin-top: -5px;
+   font-weight: bold;
+   width: 300px;
+   list-style-type: none;
+   color: red;
+}
+
+.errorlist li:not(:first-child) {
+margin-top: 10px;
+}
+
+.acc_container {
+   justify-content: space-between;
+   display: flex;
+   padding: 30px 50px;
+}
+
+.acc_settings {
+   font-size: 18px;
+   display: flex;
+}
+
+.acc_profile {
+   font-size: 40px;
+   display: flex;
+}
+
+.acc_settings_logout {
+   margin-left: 20px;
+} 
+
+.acc_settings_delete {
+   margin-top: 30px;
+}
+
+.acc_profile_img img{
+   border: black solid 1px;
+   width: 200px;
+   height: 200px;
+}
+
+.acc_profile_name {
+   margin-left: 30px;
+   margin-top: -20px;
+}
+
+.acc_settings_edit a,.acc_settings_logout a,.acc_settings_delete a,.edit_back a, .det_back a {
+   color: black;
+   padding: 10px 12px;
+   border: black solid 1px;
+   border-radius: 25px;
+   transition: 0.5s;
+}
+
+.acc_settings_edit a:hover,.acc_settings_logout a:hover,.acc_settings_delete a:hover,.edit_back a:hover, .det_back a:hover {
+   color: red;
+   border: red solid 1px;
+   transition: 0.5s;
+}
+
+
+
+.index_a {
+   color: black;
+   font-size: 22px;
+   transition: 0.5s;
+}
+
+.index_a:hover {
+   color: red;
+   transition: 0.5s;
+}
+
+.index_que {
+   margin-left: 30px;
+   font-size: 30px;
+   font-weight: bold;
+}
+
+.det_container {
+   padding: 10px 50px;
+}
+
+.det_choice {
+   margin-top: 10px;
+   width: 15px;
+   height: 15px;
+}
+
+.det_label {
+   font-size: 20px;
+}
+
+.det_submit {
+   transition: 0.5s;
+   margin-top: 20px;
+   color: black;
+   background-color: white;
+   font-size: 18px;
+   border-radius: 10px;
+   padding: 5px 8px;
+   cursor: pointer;
+   border: 1px solid black;
+}
+
+.det_submit:hover {
+   transition: 0.5s;
+   color: red;
+   border-color: red;
+}
+
+.det_h1 {
+   margin-left: 10px;
+}
+
+.det_error {
+   margin-left: 10px;
+   color: red;
+   font-size: 20px;
+}
+li {
+   font-size: 20px;
+   margin-left: -30px ;
+   list-style: none;
+}
+
+.rusult_submit {   
+   margin-top: 60px;
+   transition: 0.5s;
+   color: black;
+   background-color: white;
+   font-size: 18px;
+   border-radius: 10px;
+   padding: 5px 8px;
+   cursor: pointer;
+   border: 1px solid black;
+}
+
+.rusult_submit:hover,.edit_form_submit:hover {
+   transition: 0.5s;
+   color: red;
+   border-color: red;
+}
+
+.result_a {
+   margin-top: 30px;
+}
+
+.edit_form_submit,.delete_form_submit {
+   margin-top: 10px;
+   transition: 0.5s;
+   color: black;
+   background-color: white;
+   font-size: 20px;
+   border-radius: 10px;
+   padding: 5px 8px;
+   cursor: pointer;
+   border: 1px solid black;
+}
+
+.edit_form_submit:hover,.delete_form_submit:hover {
+   transition: 0.5s;
+   color: red;
+   border-color: red;
+}
+
+.edit_container {
+   justify-content: space-between;
+   display: flex;
+   flex-direction: row;  
+   padding: 10px 50px;
+}
+
+.edit_form_label,.delete_form_label {
+   font-size: 20px;
+}
+
+.edit_form_first,.edit_form_second,.edit_form_third,.delete_form_first,.delete_form_second {
+   display: flex;
+   flex-direction: column;
+}
+
+.edit_form_image {
+   margin-top: 10px;
+   width: 250px;
+}
+
+.edit_form_name,.edit_form_password,.delete_form_password2,.delete_form_password {
+   padding: 3px 5px;
+   font-size: 18px;
+   margin-top: 10px;
+   width: 200px;
+   height: 30px;
+   border: 1px solid black;
+   border-radius: 6px;
+   transition: 0.5s;
+}
+
+.edit_form_name:hover,.edit_form_password:hover,.delete_form_password2:hover,.delete_form_password:hover{
+   border-color: red;
+   transition: 0.5s;
+}
+
+.messages {
+   color: red;
+   font-size: 20px;
+   font-weight: bold;
+}
+
+.delete_container {
+   padding: 10px 50px;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+}
+.delete_warning {
+   color: red;
+   font-size: 40px;
+   text-align: center;
+}
+
+.edit_form {
+   margin-bottom: 30px;
+}
+
+.det_warning {
+   color: red;
+   font-size: 20px;
+   font-weight: bold;
+}
+
+.index_question {
+   display: flex;   
+   margin-top: 15px;
+   flex-direction: row;
+}
+
+.index_question:first-child {
+   margin-top: -8px;
+}
+
+.index_desc {
+   font-size: 22px;
+   margin: 0;
+   margin-left: 10px;
+}
+
+.det_desc {
+   font-size: 22px;
+   margin: -10px 0 10px 10px;
+}
+
+.det_image {
+   max-width: 400px;
+   max-height: 400px;
+   margin-bottom: 10px;
+   margin-top: 10px;
+}
+
+.edit_back {
+   margin-top: 40px;
+}
+
+.det_body {
+   display: flex;
+   justify-content: space-between;
+}
+
+.det_back {
+   margin: 40px;
+}
+
+.body_container {
+   display: flex;
+   justify-content: space-between;
+}
